@@ -68,3 +68,39 @@ vector<int> majorityElement(vector<int> &nums)
         res.push_back(el2);
     return res;
 }
+
+/*
+Step 1: Candidate selection phase
+
+We try to identify up to 2 potential majority candidates.
+
+Maintain:
+
+el1, el2 → candidate elements.
+
+cnt1, cnt2 → counts for them.
+
+Traverse through the array:
+
+If current number matches el1, increase cnt1.
+
+Else if it matches el2, increase cnt2.
+
+Else if cnt1 == 0, assign el1 = nums[i], set cnt1 = 1.
+
+Else if cnt2 == 0, assign el2 = nums[i], set cnt2 = 1.
+
+Else, decrement both cnt1 and cnt2.
+
+⚡ Idea: Each time we encounter a “new” number while both counts are nonzero, we "cancel" it against existing candidates — similar to knockout rounds in football, where only the strongest survive.
+
+By the end, el1 and el2 are the only possible candidates that might occur > n/3 times.
+
+Step 2: Verification phase
+
+We reset cnt1 and cnt2 to 0, and count how many times el1 and el2 actually appear in the array.
+
+If cnt1 > n/3, add el1 to result.
+
+If cnt2 > n/3, add el2 to result.
+*/

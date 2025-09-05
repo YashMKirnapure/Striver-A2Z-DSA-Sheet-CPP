@@ -7,6 +7,7 @@ string armstrongNumber(int n)
     int tmp = n;
     int Numb = 0;
     int sum = 0;
+    
     while (n > 0)
     {
         Numb = n % 10;

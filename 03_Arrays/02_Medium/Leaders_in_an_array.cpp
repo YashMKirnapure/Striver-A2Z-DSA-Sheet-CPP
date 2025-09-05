@@ -13,7 +13,7 @@ void func(vector<int> &arr, int idx, vector<int> &res, int n)
     func(arr, idx + 1, res, n);
     
     if (arr[idx] >= res.back())
-    res.push_back(arr[idx]);
+        res.push_back(arr[idx]);
 }
 
 vector<int> leaders(vector<int> &arr)
@@ -45,3 +45,39 @@ vector<int> leaders(vector<int> &arr)
     reverse(res.begin(), res.end());
     return res;
 }
+
+/*
+Logic:
+
+Start from the end - The rightmost element is always a leader (nothing to its right), so add it to result and set it as current maximum.
+Traverse from right to left - Process elements from second-last to first:
+
+Compare each element with the current maximum from its right side
+If current element is greater than or equal to the maximum on its right, it's a leader
+
+
+Update and collect leaders:
+
+If arr[i] >= curr: This element is a leader, add to result and update curr to this new maximum
+If arr[i] < curr: Skip this element (not a leader)
+
+
+Reverse the result - Since we processed from right to left, reverse the result to get leaders in their original left-to-right order.
+
+Example:
+
+Input: [16,17,4,3,5,2]
+Process (right to left):
+
+Start: curr=2, res=[2]
+At 5: 5≥2, curr=5, res=[2,5]
+At 3: 3<5, skip
+At 4: 4<5, skip
+At 17: 17≥5, curr=17, res=[2,5,17]
+At 16: 16<17, skip
+
+
+After reverse: [17,5,2]
+
+Key insight: By traversing right-to-left, we can efficiently track the maximum element seen so far from the right, eliminating the need to check all elements to the right for each position.
+*/

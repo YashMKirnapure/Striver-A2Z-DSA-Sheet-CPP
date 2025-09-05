@@ -43,3 +43,52 @@ vector<int> spiralOrder(vector<vector<int>> &matrix)
     }
     return ans;
 }
+
+/*
+Step-by-step explanation:
+
+Initialize boundaries
+
+top = 0 → starting row
+
+bottom = n - 1 → ending row
+
+left = 0 → starting column
+
+right = m - 1 → ending column
+
+These four variables define the current “layer” of the spiral.
+
+Loop until boundaries overlap
+
+Continue while top <= bottom and left <= right.
+
+Traverse in 4 directions
+Each spiral "lap" has 4 steps:
+
+(a) Left → Right (top row)
+
+Go across row top from column left to right.
+
+Then move boundary down: top++.
+
+(b) Top → Bottom (right column)
+
+Go down column right from row top to bottom.
+
+Then move boundary left: right--.
+
+(c) Right → Left (bottom row, if still valid)
+
+Go across row bottom from column right to left.
+
+Then move boundary up: bottom--.
+
+(d) Bottom → Top (left column, if still valid)
+
+Go up column left from row bottom to top.
+
+Then move boundary right: left++.
+
+Repeat until the boundaries cross (all elements are visited).
+*/

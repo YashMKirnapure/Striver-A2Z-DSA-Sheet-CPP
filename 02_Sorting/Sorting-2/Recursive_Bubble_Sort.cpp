@@ -9,8 +9,8 @@ void func(vector<int>&nums,int i,int j,int n)
         return;
     if(nums[j] > nums[j+1])
         swap(nums[j],nums[j+1]);
-        func(nums,i,j+1,n);
-    }
+    func(nums,i,j+1,n);
+}
 
 vector <int> recBubbleSort(vector<int>&nums)
 {

@@ -20,3 +20,15 @@ int maxLength(vector<int> &arr)
     }
     return maxLen;
 }
+
+/*
+sum → keeps track of prefix sum.
+
+mp → stores the first index where a particular sum occurs.
+
+If sum == 0 at index i, then [0..i] is a zero-sum subarray.
+
+If the same sum occurs again at index i, then the subarray between (mp[sum] + 1 .. i) has sum zero.
+
+Keep updating maxLen accordingly.
+*/

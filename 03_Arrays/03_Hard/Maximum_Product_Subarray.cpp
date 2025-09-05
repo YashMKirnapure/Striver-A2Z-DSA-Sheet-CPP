@@ -31,11 +31,11 @@ int maxProduct(vector<int> &nums)
     for (int i = 0; i < n; i++)
     {
         if (pre == 0)
-        pre = 1;
+            pre = 1;
         if (suff == 0)
             suff = 1;
 
-            pre = pre * nums[i];
+        pre = pre * nums[i];
         suff = suff * nums[n - i - 1];
 
         maxy = max(maxy, max(pre, suff));
@@ -43,3 +43,16 @@ int maxProduct(vector<int> &nums)
     return maxy;
 }
 
+/*
+Products can flip signs when negatives are involved.
+
+Zeros reset the product.
+
+To catch all possibilities, we scan:
+
+Left to right (prefix)
+
+Right to left (suffix)
+
+Because the max product subarray could "start" or "end" after a zero or a negative number.
+*/

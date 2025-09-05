@@ -41,3 +41,38 @@ vector<vector<int>> threeSum(vector<int> &nums)
     }
     return res;
 }
+
+/*
+Sort the array
+
+Sorting helps us skip duplicates easily and allows the two-pointer technique.
+
+Fix one element (nums[i])
+
+For each element, we want to find two other elements (nums[j] and nums[k]) such that:
+
+nums[i] + nums[j] + nums[k] = 0
+
+
+Use two pointers (j, k)
+
+Start j = i + 1 and k = n - 1.
+
+If the sum is too small (< 0) → move j++ (increase sum).
+
+If the sum is too large (> 0) → move k-- (decrease sum).
+
+If the sum is exactly 0 → store it, then shift both j++ and k--.
+
+Skip duplicates
+
+Avoid repeating triplets by skipping same numbers for both i, j, and k.
+
+Complexity
+
+Sorting: O(n log n)
+
+Two-pointer scan inside the loop: O(n²)
+
+Overall: O(n²), which is optimal for 3Sum.
+*/
