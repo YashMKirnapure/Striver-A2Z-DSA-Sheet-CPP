@@ -44,3 +44,27 @@ int search(vector<int> &nums, int target)
 
     return func(nums, n, target, low, high);
 }
+
+/*
+You start with a sorted array of numbers and a target number you want to find.
+
+You keep two pointers:
+
+low → the start of the array.
+
+high → the end of the array.
+
+While low is less than or equal to high:
+
+Find the middle index → mid = (low + high) / 2.
+
+Check the middle element:
+
+If it’s exactly the target → found it → return mid.
+
+If the middle element is bigger than the target → the target must be in the left half, so shift high = mid - 1.
+
+If the middle element is smaller than the target → the target must be in the right half, so shift low = mid + 1.
+
+If the loop ends without finding the target, return -1 (meaning “not present”).
+*/

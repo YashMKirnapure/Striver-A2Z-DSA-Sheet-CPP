@@ -38,3 +38,29 @@ bool search(vector<int> &arr, int target)
     }
     return false;
 }
+
+/*
+Standard binary search loop with low, high, mid.
+
+If arr[mid] == target → return true.
+
+If the values at low, mid, and high are all equal, you can’t decide which half is sorted.
+
+So just shrink the search space → low++ and high--.
+
+Otherwise, decide which half is sorted:
+
+If left half (arr[low] … arr[mid]) is sorted:
+
+If target lies in this range → high = mid - 1.
+
+Else → low = mid + 1.
+
+Else (right half is sorted):
+
+If target lies in this range → low = mid + 1.
+
+Else → high = mid - 1.
+
+If loop finishes without finding target, return false.
+*/

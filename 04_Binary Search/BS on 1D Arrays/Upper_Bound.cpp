@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+// You want to find the first index where the element is greater than x.
 int upperBound(vector<int>&arr,int x)
 {
     int n = arr.size();

@@ -45,3 +45,25 @@ int search(vector<int> &nums, int target)
     }
     return -1;
 }
+
+/*
+Standard binary search loop (low, high, mid).
+
+If nums[mid] == target → return mid.
+
+Otherwise, check which half is sorted:
+
+If left half (nums[low] … nums[mid]) is sorted:
+
+If target lies in that range → move high = mid - 1.
+
+Else → move low = mid + 1.
+
+Else (right half is sorted):
+
+If target lies in that range → move low = mid + 1.
+
+Else → move high = mid - 1.
+
+If not found → return -1.
+*/
