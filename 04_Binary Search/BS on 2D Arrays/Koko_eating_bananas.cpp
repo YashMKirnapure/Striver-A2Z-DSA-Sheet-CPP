@@ -38,3 +38,21 @@ int minEatingSpeed(vector<int> &piles, int h)
     }
     return low;
 }
+
+/*
+The minimum speed Koko can eat is 1 banana/hour.
+
+The maximum speed is the largest pile size (if she eats a whole pile in one hour).
+
+Use binary search on this range [1, maxPile]:
+
+Pick a mid-speed mid.
+
+Compute total hours needed if Koko eats at speed mid using ceil(piles[i] / mid).
+
+If hours ≤ h → she can finish faster or at time → try smaller speed (high = mid - 1).
+
+Else → she’s too slow → increase speed (low = mid + 1).
+
+Return low (smallest valid speed).
+*/

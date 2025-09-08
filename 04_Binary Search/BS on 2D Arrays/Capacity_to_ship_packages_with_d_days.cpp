@@ -59,3 +59,35 @@ int shipWithinDays(vector<int> &weights, int days)
     }
     return ans;
 }
+
+/*
+Helper functions:
+
+max_ele(weights) → the minimum possible capacity (since at least one ship must carry the heaviest package).
+
+sum_all(weights) → the maximum possible capacity (if one ship carries everything in a single day).
+
+canShip(weights, days, cap):
+
+Simulate shipping with capacity = cap.
+
+Keep filling the current ship until the next package would exceed cap.
+
+If so → start a new day (daysNeeded++).
+
+If total daysNeeded <= days → shipping is possible.
+
+shipWithinDays(weights, days):
+
+Set search space: [max(weights), sum(weights)].
+
+Binary search:
+
+Pick cap = mid.
+
+If canShip(cap) is true → try smaller capacity (high = mid - 1).
+
+Else → need more capacity (low = mid + 1).
+
+Return the smallest cap that works.
+*/
