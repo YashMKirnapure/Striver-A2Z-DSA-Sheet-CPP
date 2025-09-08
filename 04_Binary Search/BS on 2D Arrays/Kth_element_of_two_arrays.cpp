@@ -48,3 +48,37 @@ int kthElement(vector<int> &a, vector<int> &b, int k)
     sort(a.begin(), a.end());
     return a[k - 1];
 }
+
+/*
+Binary search on the smaller array (a)
+If a is bigger, swap arrays to reduce search space.
+
+Partitioning
+
+We want exactly k elements on the left side (from a and b combined).
+
+If mid1 elements are taken from a, then mid2 = k - mid1 must come from b.
+
+Boundaries
+
+l1 = a[mid1 - 1], r1 = a[mid1] → left and right neighbors of the partition in a.
+
+l2 = b[mid2 - 1], r2 = b[mid2] → same for b.
+
+If out of bounds, use INT_MIN/INT_MAX (to avoid edge case crashes).
+
+Check valid partition
+
+if (l1 <= r2 && l2 <= r1)
+    return max(l1, l2);
+
+This ensures all elements in the left half ≤ all elements in the right half.
+
+Since we only need the k-th element, the answer is the max of left side.
+
+Adjust search
+
+If l1 > r2 → too many elements taken from a, move high left.
+
+Else → take more from a, move low right.
+*/
