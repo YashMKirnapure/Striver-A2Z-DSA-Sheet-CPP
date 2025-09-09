@@ -41,3 +41,33 @@ vector<int> findPeakGrid(vector<vector<int>> &mat)
     }
     return {-1, -1};
 }
+
+/*
+We do binary search on columns instead of rows.
+
+low = 0, high = m-1
+
+At each step, pick mid column.
+
+In that column, find the maximum element’s row index using maxEleIdx.
+
+This ensures we’re always considering the “most promising candidate” in that column.
+
+Check neighbors:
+
+left → element just before it in the same row (if exists).
+
+right → element just after it in the same row (if exists).
+
+Peak condition:
+
+If mat[row][mid] > left && mat[row][mid] > right → we found the peak.
+
+Otherwise, move search direction:
+
+If mat[row][mid] < left → move left (high = mid - 1).
+
+Else → move right (low = mid + 1).
+
+If its left/right neighbor is bigger, the peak must lie in that half.
+*/

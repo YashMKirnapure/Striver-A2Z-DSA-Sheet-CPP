@@ -83,3 +83,27 @@ int median(vector<vector<int>> &mat)
     }
     return low;
 }
+
+/*
+Search space → values in matrix (not indices).
+
+low = min(first element of each row)
+
+high = max(last element of each row)
+
+For a candidate mid, count how many elements are ≤ mid.
+
+This is done row by row using upperBound (like std::upper_bound in C++).
+
+Complexity of each row = O(log m).
+
+If smallEqual ≤ req (where req = (n*m)/2):
+
+Median is larger → move low = mid + 1.
+
+Else →
+
+Median could be smaller or equal → high = mid - 1.
+
+Finally, low will point to the median value.
+*/

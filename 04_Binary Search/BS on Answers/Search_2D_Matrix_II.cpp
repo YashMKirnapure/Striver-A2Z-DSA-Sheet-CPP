@@ -6,21 +6,21 @@ bool searchMatrix(vector<vector<int>> &matrix, int target)
 {
     int n = matrix.size();
     int m = matrix[0].size();
-    
+
     for (int i = 0; i < n; i++)
     {
         int low = 0;
         int high = m - 1;
-        
+
         while (low <= high)
         {
             int mid = low + (high - low) / 2;
             if (matrix[i][mid] == target)
-            return true;
+                return true;
             else if (matrix[i][mid] > target)
-            high = mid - 1;
+                high = mid - 1;
             else
-            low = mid + 1;
+                low = mid + 1;
         }
     }
     return false;
@@ -46,3 +46,13 @@ bool searchMatrix(vector<vector<int>> &matrix, int target)
     }
     return false;
 }
+
+/*
+Start at the top-right corner:
+
+If current element > target → move left.
+
+If current element < target → move down.
+
+If equal → return true.
+*/
