@@ -33,6 +33,6 @@ int convert2Decimal(string str)
 
 int main()
 {
-    cout<<convert2Binary(13);
-    cout<<convert2Decimal("1011");
+    cout<<convert2Binary(10);
+    // cout<<convert2Decimal("1011");
 }

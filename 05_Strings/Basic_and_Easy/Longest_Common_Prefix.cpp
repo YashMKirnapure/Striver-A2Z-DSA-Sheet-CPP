@@ -22,3 +22,14 @@ string longestCommonPrefix(vector<string> &strs)
     }
     return res;
 }
+
+/*
+1. Take the first string as a “baseline” prefix.
+
+2. For each character position i in that baseline string:
+    Compare it with the ith character of all other strings.
+    If they all match → continue.
+    If any mismatch (or a string ends) → stop, and return the prefix built so far.
+
+3. If we get through the whole first string without mismatches → the whole string is the LCP.
+*/
