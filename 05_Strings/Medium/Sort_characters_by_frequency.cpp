@@ -28,3 +28,17 @@ string frequencySort(string str)
 
     return ans;
 }
+
+/*
+1. Count character frequencies
+    Use a map mp to count how many times each character appears in the string.
+    Example: "tree" → {t:1, r:1, e:2}.
+2. Convert to vector of pairs
+    Store as (character, frequency) in a vector.
+    Example: [ (t,1), (r,1), (e,2) ].
+3. Sort by frequency
+    Use a custom comparator cmp that sorts in descending order of frequency (p1.second > p2.second).
+    After sorting: [ (e,2), (t,1), (r,1) ].
+4. Build the result string
+    For each (char, freq) in the sorted vector, append char repeated freq times.
+*/
