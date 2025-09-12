@@ -26,3 +26,5 @@ string reverseWords(string s)
     }
     return res;
 }
+
+/* Same as the previous one */

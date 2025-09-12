@@ -1,33 +1,45 @@
 #include <iostream>
 using namespace std;
 
-int myAtoi(string str)
+string expand(string str, int left, int right)
+{
+    while (left >= 0 && right < str.size() && str[left] == str[right])
+    {
+        left--;
+        right++;
+    }
+    return str.substr(left + 1, right - left - 1);
+}
+
+string longestPalindrome(string str)
 {
     int n = str.size();
-    long long res = 0;
-    int sign = 1;
-    int i = 0;
+    string ans;
 
-    while (i < n && str[i] == ' ')
-        i++;
+    if (n <= 1) 
+        return str;
 
-    if (i < n && (str[i] == '-' || str[i] == '+'))
+    for (int i = 0; i < n; i++)
     {
-        if (str[i] == '-')
-            sign = -1;
-        else
-            sign = 1;
-        i++;
-    }
+        string odd = expand(str, i, i);
+        string even = expand(str, i, i + 1);
 
-    while (isdigit(str[i]))
-    {
-        res = res * 10 + (str[i] - '0');
-        if (res * sign >= INT_MAX)
-            return INT_MAX;
-        if (res * sign <= INT_MIN)
-            return INT_MIN;
-        i++;
+        if (odd.size() > ans.size())
+            ans = odd;
+        if (even.size() > ans.size())
+            ans = even;
     }
-    return res * sign;
+    return ans;
 }
+
+/*
+1. A palindrome mirrors around its center.
+    Odd length → single character center.
+    Even length → two-character center.
+
+2. For each index i:
+    Expand around i (odd-length palindrome).
+    Expand around i and i+1 (even-length palindrome).
+
+3. Keep track of the longest palindrome found so far.
+*/
