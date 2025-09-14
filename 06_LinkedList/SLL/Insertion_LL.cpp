@@ -71,7 +71,6 @@ Node * insert_at_kth_pos(Node * head,int K,int ele)
     }
     
     Node * temp = head;
-    Node * prev = NULL;
     int cnt = 0;
 
     while(temp!=NULL)
@@ -107,7 +106,6 @@ Node * insert_before_val(Node * head,int ele,int val)
     }
     
     Node * temp = head;
-    Node * prev = NULL;
     int cnt = 0;
 
     while(temp->next!=NULL)
