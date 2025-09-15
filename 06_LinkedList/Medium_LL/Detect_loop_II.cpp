@@ -1,18 +1,62 @@
 #include <iostream>
 using namespace std;
 
-ListNode *detectCycle(ListNode *head)
+Node* firstNode(Node* head) 
 {
-    if (head == NULL || head->next == NULL)
-        return NULL;
+    
+    // Initialize a slow and fast 
+    // pointers to the head of the list
+    Node* slow = head;  
+    Node* fast = head;  
 
-    unordered_map<ListNode *, int> vis;
-
-    for (ListNode *curr = head; curr != NULL; curr = curr->next)
+    // Phase 1: Detect the loop
+    while (fast != NULL && fast->next != NULL) 
     {
-        if (vis[curr] > 1)
-            return curr;
-        vis[curr]++;
+        
+        // Move slow one step
+        slow = slow->next;        
+        
+        // Move fast two steps
+        fast = fast->next->next;  
+
+        // If slow and fast meet,
+        // a loop is detected
+        if (slow == fast) 
+        {
+            
+             // Reset the slow pointer
+             // to the head of the list
+            slow = head; 
+
+            // Phase 2: Find the first node of the loop
+            while (slow != fast) 
+            {
+                
+                // Move slow and fast one step
+                // at a time
+                slow = slow->next;  
+                fast = fast->next;  
+
+                // When slow and fast meet again,
+                // it's the first node of the loop
+            }
+            
+            // Return the first node of the loop
+            return slow;  
+        }
     }
-    return NULL;
+    
+     // If no loop is found, return NULL
+    return NULL; 
 }
+
+/*
+1.Phase 1 (Cycle detection):
+    Use slow (1 step) and fast (2 steps).
+    If they meet → loop exists.
+
+2.Phase 2 (Find entry point):
+    Reset slow to head.
+    Move both slow and fast one step at a time.
+    The node where they meet is the first node of the loop.
+*/

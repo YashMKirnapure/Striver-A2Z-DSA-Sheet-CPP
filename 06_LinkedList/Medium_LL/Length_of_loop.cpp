@@ -27,3 +27,14 @@ int lengthOfLoop(Node *head)
     }
     return 0;
 }
+
+/*
+1.Use Floyd’s Cycle Detection (slow & fast pointers).
+
+2.When slow == fast, a loop exists.
+
+3.To count loop length:
+    Keep one pointer fixed (slow).
+    Move the other pointer (fast) step by step until it comes back to slow.
+    Count the steps → that’s the loop length.
+*/
