@@ -61,3 +61,14 @@ ListNode *removeNthFromEnd(ListNode *head, int n)
     temp->next = temp->next->next;
     return head;
 }
+
+/*
+1. If the list has only one node and we need to remove it → return NULL.
+2. Use two pointers (fast and slow), both starting at head.
+3. Move fast ahead by n steps.
+    If fast becomes NULL, it means the node to remove is the head, so return head->next.
+4. Move both slow and fast until fast reaches the last node.
+    At this point, slow is just before the node to be deleted.
+5. Delete the node (slow->next) safely, and adjust links.
+6. Return updated head.
+*/
