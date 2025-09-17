@@ -76,3 +76,26 @@ Node *addOne(Node *head)
     head = reverseLL(head);
     return head;
 }
+
+/*
+🔹 Helper Function: reverseLL
+    Standard linked list reversal.
+    Why? Because addition is easier if we start from the least significant digit (the tail).
+        Example: 1 -> 9 -> 9 (represents 199) → reverse → 9 -> 9 -> 1.
+
+🔹 Main Function: addOne
+1. Reverse the linked list → so addition starts from the last digit.
+    Example: 199 → reverse → 991.
+2. Initialize carry = 1 (because we’re adding 1).
+3. Traverse the list:
+    Add carry to temp->data.
+    If temp->data < 10:
+    → No overflow → set carry = 0 and stop.
+    Else (overflow, e.g., 9+1=10):
+    → set temp->data = 0, keep carry = 1, and move forward.
+4. After traversal, if carry is still 1 (like when input is 999):
+    Create a new node with value 1.
+    Reverse the list back.
+    Put this new node at the front.
+5. Reverse the list again to restore original order.
+*/

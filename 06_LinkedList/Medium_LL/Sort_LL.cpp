@@ -58,3 +58,27 @@ ListNode *mergelist(ListNode *l1, ListNode *l2)
     }
     return ptr->next;
 }
+
+/*
+1. Base case:
+    If the list is empty (NULL) or has just one node → already sorted → return head.
+
+2. Split the list into halves:
+    Use slow & fast pointers:
+        slow moves one step at a time.
+        fast moves two steps at a time.
+    When fast reaches the end, slow is at the middle.
+    Use a temp pointer to cut the list into two halves.
+
+3. Recursive Sort:
+    Recursively call sortList on each half (l1 and l2).
+
+4. Merge two sorted halves:
+    Use the helper function mergelist.
+    Compare nodes from l1 and l2 one by one.
+    Append the smaller one to the merged list.
+    Continue until one list is exhausted.
+    Attach the remaining nodes.
+
+5. Return the merged head as the final sorted list.
+*/
