@@ -28,3 +28,19 @@ bool checkSubsequenceSum(int n, vector<int> &arr, int k)
     int sum = 0;
     return func(idx, arr, sum, k, n);
 }
+
+/*
+1. Start from index 0 with sum = 0.
+
+2. For each element at position idx, you have two choices:
+    Pick it → add arr[idx] to sum and move to the next index.
+    Don’t pick it → keep sum as is and move to the next index.
+
+3. Base cases:
+    If sum > k, stop and return false (pruning).
+    If we’ve checked all elements (idx == n):
+        Return true if sum == k.
+        Else return false.
+
+4. Final result is true if either the pick path or the not-pick path leads to a subsequence with sum k.    
+*/

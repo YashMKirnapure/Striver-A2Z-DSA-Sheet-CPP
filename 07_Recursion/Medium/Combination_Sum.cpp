@@ -34,3 +34,17 @@ vector<vector<int>> combinationSum(vector<int> &candidates, int target)
     func(temp, res, idx, candidates, sum, target, n);
     return temp;
 }
+
+/*
+1. We try to build combinations step by step from the given candidates array.
+
+2. At every index, we have two choices:
+    Pick the current element → add it to res and call the function again without moving to the next index (because elements can be reused).
+    Don’t pick the current element → move to the next index without adding anything.
+
+3. Base cases:
+If the running sum becomes greater than target, stop (pruning).
+If we reach the end (idx == n), check:
+    If sum == target, we found a valid combination → add it to the result list.
+    Else discard.
+*/
