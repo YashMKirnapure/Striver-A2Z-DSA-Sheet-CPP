@@ -55,3 +55,25 @@ int minBitFlips(int start, int goal)
     }
     return cnt;
 }
+
+/*
+The task is to find how many bits need to be flipped to convert start into goal.
+
+Step 1:
+int num = start ^ goal;
+
+XOR gives 1 wherever the bits of start and goal differ.
+So now num is a binary mask of all differing positions.
+
+Step 2:
+while(num != 0) {
+    cnt++;
+    num = num & (num - 1);
+}
+
+This loop counts how many set bits are in num.
+num & (num - 1) removes the last set bit each time.
+Each removal increments cnt, which is our number of flips needed.
+
+Final result = number of differing bits between start and goal.
+*/
