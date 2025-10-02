@@ -54,5 +54,8 @@
         "ranges": "cpp",
         "span": "cpp",
         "stack": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "tempn"
+    ]
 }
