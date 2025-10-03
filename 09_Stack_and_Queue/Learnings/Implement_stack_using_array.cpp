@@ -70,3 +70,29 @@ int main()
         st.pop();
     }
 }
+
+/*
+🔹 Stack (Array Implementation) — Logic in Plain Words
+1. Initialization
+    Create a stack with a fixed capacity cap.
+    Start with top = -1 (meaning the stack is empty).
+    Allocate an array st of size cap to hold stack elements.
+
+2. Push (Insert an element)
+    If top is already at cap - 1, the stack is full → Overflow.
+    Otherwise, increment top and place the new element at st[top].
+
+3. Pop (Remove top element)
+    If top < 0, stack is empty → Underflow.
+    Otherwise, return the element at st[top] and decrement top.
+
+4. Peek (View top element without removing)
+    If stack is empty (top < 0) → Underflow.
+    Otherwise, return st[top].
+
+5. isEmpty
+    Return true if top < 0, else false.
+
+6. Size
+    Current size = top + 1.
+*/
