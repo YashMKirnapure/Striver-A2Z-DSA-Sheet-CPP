@@ -80,3 +80,24 @@ int main()
     cout<<st.pop()<<endl;
     cout<<st.sze()<<endl;
 }
+
+/*
+Logic :
+1. Push(x):
+    Create a new node with value x.
+    Insert it at the head of the linked list (so it becomes the new "top" of the stack).
+    Increase size.
+
+2. Pop():
+    If the stack is empty, return error/0.
+    Otherwise, take the value at the head (the "top"), move head to head->next, delete the old node, and reduce size.
+
+3. Peek():
+    Just return the data at the head (the "top" element), without removing it.
+
+4. Size():
+    Return the size counter.
+
+5. isEmpty():
+    Check if head == NULL.
+*/

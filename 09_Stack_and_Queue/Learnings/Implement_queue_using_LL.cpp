@@ -64,3 +64,15 @@ int main()
     cout<<"Queue Front: "<<q.front->data<<endl;
     cout<<"Queue Rear: "<<q.rear->data<<endl;
 }
+
+/*
+1. Push(x) (Enqueue):
+    Create a new node with value x.
+    If the queue is empty (rear == NULL), set both front and rear to the new node.
+    Otherwise, attach the new node to rear->next and update rear to the new node.
+
+2. Pop() (Dequeue):
+    If the queue is empty (front == NULL), do nothing.
+    Otherwise, remove the node at front and move front to front->next.
+    If after removal the queue becomes empty, also set rear = NULL.
+*/
