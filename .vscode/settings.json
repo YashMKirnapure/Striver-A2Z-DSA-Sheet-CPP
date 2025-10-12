@@ -5,6 +5,7 @@
         "ranges": "cpp",
         "xlocale": "cpp",
         "stack": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "iostream": "cpp"
     }
 }
