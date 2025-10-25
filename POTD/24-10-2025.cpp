@@ -30,3 +30,4 @@ int nextBeautifulNumber(int n)
     }
     return -1;
 }
+
